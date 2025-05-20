@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  /* custom variable */
+  --color-white: #FFFFFF;
+  --color-light-gray: #F4F4F4;
+  --color-gray: #E9E9E9;
+  --color-dark-gray: #757575;
+  --color-primary: #A445ED;
+  --color-accent: #FF5252;
+  --color-black: #050505;
+  --color-light-black: #1F1F1F;
+
+  /* light mode */
+  --bg-color: var(--color-white);
+  --text-color: var(--color-black);
+  --border-color: var(--color-gray);
+  --highlight-color: var(--color-primary);
+  --error-color: var(--color-accent);
+  --input-bg-color: var(--color-light-gray);
+
+  /* Typography */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Lora", serif;
+  --font-mono: "Inconsolata", monospace;
+  --current-font: var(--font-sans); 
+
+  /* Typography Scale */
+  --heading-l-font-size: 64px;
+  --heading-l-line-height: 77px;
+
+  --heading-m-font-size: 24px;
+  --heading-m-line-height: 29px;
+
+  --heading-s-font-size: 20px;
+  --heading-s-line-height: 24px;
+
+  --body-m-font-size: 18px;
+  --body-m-line-height: 24px;
+
+  --body-s-font-size: 14px;
+  --body-s-line-height: 17px;
+}
+
+.dark-mode {
+  --bg-color: var(--color-black);
+  --text-color: var(--color-white);
+  --border-color: var(--color-gray);
+  --highlight-color: var(--color-primary);
+  --error-color: var(--color-accent);
+  --input-bg-color: var(--color-light-black);
+}
+/* End of custom properties */
+
+/* === Modern CSS Reset === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--current-font);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* End of CSS Reset */
+
+/* Header and Navigation */
+.wrapper {
+  padding: 24px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+#logo {
+  width: 28px;
+  height: 32px;
+}
+
+.languague-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Header and Navigation */
+.language-select {
+  position: relative;
+  display: inline-block;
+}
+
+.language-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border-radius: 8px;
+  background-color: var(--input-bg-color);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-select select:hover {
+  background-color: var(--color-gray);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.language-select select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(164, 69, 237, 0.3); 
+  background-color: var(--input-bg-color);
+}
+
+body.dark-mode .language-select select {
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.language-select select option {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 8px; 
+}
+
+body.dark-mode .language-select select option {
+  color: var(--color-white);
+  background-color: var(--color-light-black);
+}
+
+.language-select select::-ms-expand {
+  display: none;
+}
+
+.language-select .arrow {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.language-select .arrow img {
+  width: 16px;
+  height: 16px;
+  filter: invert(0);
+}
+
+#pipe {
+  width: 1px;
+  height: 36px;
+  background-color: var(--color-gray);
+}
+
+/* slider */
+.theme-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hide default checkbox */
+.slider input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Slider container */
+.slider {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  background-color: var(--color-dark-gray);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Change background color when checkbox is checked */
+body.dark-mode .slider {
+  background-color: var(--color-primary);
+}
+
+/* The circle inside the slider */
+.slider-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+/* Move the thumb when checkbox is checked */
+.slider input:checked + .slider-thumb {
+  transform: translateX(26px);
+}
+
+/* Search section */
+#search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  background-color: var(--input-bg-color);
+  padding: 12px 20px;
+  border-radius: 16px;
+}
+
+#search.dark-mode {
+  background-color: var(--input-bg-color);
+}
+
+#search-input {
+  background-color: transparent;
+  border: none;
+  font-size: var(--body-m-font-size);
+  line-height: var(--body-m-line-height);
+  color: var(--text-color);
+  padding: 4px;
+  outline: none;
+  width: 100%;
+}
+
+#search-input.dark-mode {
+  color: var(--text-color)
+}
+
+#search:focus-within {
+  box-shadow: 0 0 0 2px rgba(164, 69, 237, 0.3);
+}
+
+.key-words {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.key-words p {
+  font-size: var(--body-m-font-size);
+  line-height: var(--body-m-line-height);
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: var(--color-primary);
+}
+
+.play-icon {
+  width: 48px;
+  height: 48px;
+}
+
+/* Definitions section */
+.definition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.definition h3 {
+  font-size: var(--body-m-font-size);
+  line-height: var(--body-m-line-height);
+  font-style: italic;
+  margin: 0;
+}
+
+hr {
+  border: 1px solid var(--color-gray);
+  width: 100%;
+}
+
+.meaning {
+  margin-bottom: 24px;
+}
+
+.meaning h4 {
+  font-size: 16px;
+  margin-bottom: 17px;
+}
+
+.meaning-list {
+  font-size: 15px;
+  line-height: var(--body-m-line-height);
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin: 0 0 0 20px;
+}
+
+.meaning-list li {
+  list-style: disc;
+  padding-left: 0.5rem;
+}
+
+.meaning li::marker {
+  color: var(--color-primary);
+}
+
+.synonyms {
+  display: flex;
+  align-items: start;
+  gap: 24px;
+  margin-bottom: 32px;
+  margin-top: 24px;
+}
+
+h4 {
+  color: var(--color-dark-gray);
+  font-weight: normal;
+}
+
+.synonyms span {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.meaning-list-verb p {
+  color: var(--color-dark-gray);
+}
+
+/* Error message for API failures */
+.error-message {
+  font-size: var(--body-m-font-size);
+  line-height: var(--body-m-line-height);
+  color: var(--error-color);
+  text-align: center;
+  margin: 24px 0;
+}
+
+/* footer section */
+footer {
+  margin-top: 32px;
+  margin-bottom: 3rem;
+}
+
+.source {
+  margin-top: 24px;
+}
+
+h5 {
+  color: var(--color-dark-gray);
+  font-size: var(--body-s-font-size);
+  line-height: var(--body-s-line-height);
+  font-weight: normal;
+  text-decoration: underline var(--color-light-black);
+  text-underline-offset: 4px;
+}
+
+h5.dark-mode {
+  text-decoration: underline var(--border-color);
+}
+
+.source-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.source-link a {
+  text-decoration: underline var(--color-dark-gray);
+}
+
+/* Loader */
+.loading {
+  text-align: center;
+  font-size: var(--body-m-font-size);
+  color: var(--text-color);
+}
+.loading::after {
+  content: '⠙';
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    max-width: 687px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom:  24px;
+  }
+
+  nav {
+    margin-bottom: 54px;
+  }
+
+  #search {
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    font-size: var(--heading-l-font-size);
+  }
+
+  .key-words {
+    margin-bottom: 42px;
+  }
+
+  .play-icon {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+  }
+
+  .play-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .definition {
+    margin-bottom: 40px;
+  }
+
+  .meaning {
+    margin-bottom: 42px;
+  }
+
+  .meaning h4 {
+    margin-bottom: 25px;
+  }
+
+  .synonyms {
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .source {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}

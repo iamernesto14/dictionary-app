@@ -7,6 +7,41 @@
     <title>Modern - Dictionary</title>
 </head>
 <body>
+  <div class="wrapper">
+    <header>
+      <nav>
+        <div><img id="logo" src="./assets/images/logo.svg" alt="an icon of a dictionary"></div>
+        <div class="languague-wrapper">
+          <div class="language-select">
+            <select id="language" name="language">
+              <option value="sans-serif">Sans Serif</option>
+              <option value="serif">Serif</option>
+              <option value="mono">Mono</option>
+            </select>
+            <span class="arrow"><img src="./assets/images/icon-arrow-down.svg" alt="an icon of an arrow"></span>    
+          </div>
+          <div id="pipe"></div>
+          <div class="theme-wrapper">
+          <label class="slider switch">
+            <input type="checkbox" id="theme-toggle" />
+            <span class="slider-thumb"></span>
+          </label>
+          <div><img id="theme-icon" src="./assets/images/icon-moon.svg" alt="an icon of a moon"></div>
+        </div>
+        </div>
+      </nav>
+    </header>
+  
+
     
+      <form id="search-form">
+        <section id="search">
+        <input type="text" placeholder="Search for a word..." id="search-input" required>
+        <button type="submit"><img src="./assets/images/icon-search.svg" alt="an icon of a search"></button>
+      </section>
+      </form>
+      <div id="word-content"></div>
+  </div>
+  <script src="./js/main.js"></script>
 </body>
 </html>
