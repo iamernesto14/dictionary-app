@@ -9,6 +9,7 @@
   --color-primary: #A445ED;
   --color-accent: #FF5252;
   --color-black: #050505;
+  --color-light-black: #1F1F1F;
 
   /* light mode */
   --bg-color: var(--color-white);
@@ -16,6 +17,7 @@
   --border-color: var(--color-gray);
   --highlight-color: var(--color-primary);
   --error-color: var(--color-accent);
+  --input-bg-color: var(--color-light-gray);
 
   /* Typography */
   --font-sans: "Inter", sans-serif;
@@ -45,6 +47,7 @@
   --border-color: var(--color-gray);
   --highlight-color: var(--color-primary);
   --error-color: var(--color-accent);
+  --input-bg-color: var(--color-light-black);
 }
 /* End of custom properties */
 
@@ -137,11 +140,14 @@ nav {
   width: 100%;
   padding: 10px 40px 10px 15px; 
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--bg-color);
   font-family: inherit;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
+  color: var(--text-color);
+  outline: none;
+  border: none;
 }
 
 /* Hide default arrow on IE */
@@ -194,6 +200,10 @@ nav {
   transition: background-color 0.3s ease;
 }
 
+/* Change background color when checkbox is checked */
+body.dark-mode .slider {
+  background-color: var(--color-primary);
+}
 
 /* The circle inside the slider */
 .slider-thumb {
@@ -219,9 +229,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-  background-color: var(--color-light-gray);
+  background-color: var(--input-bg-color);
   padding: 12px 20px;
   border-radius: 16px;
+}
+
+#search.dark-mode {
+  background-color: var(--input-bg-color);
 }
 
 #search-input {
@@ -229,9 +243,14 @@ nav {
   border: none;
   font-size: var(--body-m-font-size);
   line-height: var(--body-m-line-height);
-  color: var(--color-black);
+  color: var(--text-color);
   padding: 4px;
   outline: none;
+  width: 100%;
+}
+
+#search-input.dark-mode {
+  color: var(--text-color)
 }
 
 .key-words {
@@ -337,7 +356,6 @@ footer {
 
 .source {
   margin-top: 24px;
-  
 }
 
 h5 {
@@ -345,8 +363,12 @@ h5 {
   font-size: var(--body-s-font-size);
   line-height: var(--body-s-line-height);
   font-weight: normal;
-  text-decoration: underline var(--color-black);
+  text-decoration: underline var(--color-light-black);
   text-underline-offset: 4px;
+}
+
+h5.dark-mode {
+  text-decoration: underline var(--border-color);
 }
 
 .source-link {
@@ -411,6 +433,10 @@ h5 {
     max-width: 800px;
     margin: 0 auto;
   }
+
+  .source {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
 }
-
-
