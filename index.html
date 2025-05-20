@@ -33,14 +33,16 @@
     </header>
   
 
-    <main>
-      <section id="search">
-        <input type="text" placeholder="Search for a word..." id="search-input">
-        <img src="./assets/images/icon-search.svg" alt="an icon of a search">
+    
+      <form id="search-form">
+        <section id="search">
+        <input type="text" placeholder="Search for a word..." id="search-input" required>
+        <button type="submit"><img src="./assets/images/icon-search.svg" alt="an icon of a search"></button>
       </section>
-
-      <section>
-        <!-- key words -->
+      </form>
+      <div id="word-content"></div>
+      <!-- <section>
+        
         <div class="key-words">
           <div>
             <h1>Keyboard</h1>
@@ -49,7 +51,7 @@
           <div class="play-icon"><img src="./assets/images/icon-play.svg" alt=" an icon of a play"></div>
         </div>
 
-        <!-- definitions -->
+       
         <div class="definition-container">
           <div class="definition">
             <h3>noun</h3>
@@ -81,10 +83,10 @@
             </ul>
           </div>
         </div>
-      </section>
-    </main>
+      </section> -->
+   
 
-    <footer>
+    <!-- <footer>
       <hr>
       <div class="source">
         <h5>Source</h5>
@@ -92,7 +94,7 @@
           <img src="./assets/images/icon-new-window.svg" alt=" an icon of a new window">
         </p>
       </div>
-    </footer>
+    </footer> -->
   </div>
   <script src="./js/main.js"></script>
 </body>

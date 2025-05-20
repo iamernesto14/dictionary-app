@@ -360,9 +360,10 @@ hr {
 
 .synonyms {
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 24px;
   margin-bottom: 32px;
+  margin-top: 24px;
 }
 
 h4 {
@@ -378,6 +379,15 @@ h4 {
 
 .meaning-list-verb p {
   color: var(--color-dark-gray);
+}
+
+/* Error message for API failures */
+.error-message {
+  font-size: var(--body-m-font-size);
+  line-height: var(--body-m-line-height);
+  color: var(--error-color);
+  text-align: center;
+  margin: 24px 0;
 }
 
 /* footer section */
@@ -441,6 +451,12 @@ h5.dark-mode {
   .play-icon {
     width: 75px;
     height: 75px;
+    cursor: pointer;
+  }
+
+  .play-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
   }
 
   .definition {
@@ -457,6 +473,7 @@ h5.dark-mode {
 
   .synonyms {
     margin-bottom: 40px;
+    margin-top: 40px;
   }
 }
 
