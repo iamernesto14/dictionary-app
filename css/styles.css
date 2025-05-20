@@ -285,6 +285,10 @@ body.dark-mode .slider {
   color: var(--text-color)
 }
 
+#search:focus-within {
+  box-shadow: 0 0 0 2px rgba(164, 69, 237, 0.3);
+}
+
 .key-words {
   display: flex;
   align-items: start;
@@ -422,6 +426,22 @@ h5.dark-mode {
 
 .source-link a {
   text-decoration: underline var(--color-dark-gray);
+}
+
+/* Loader */
+.loading {
+  text-align: center;
+  font-size: var(--body-m-font-size);
+  color: var(--text-color);
+}
+.loading::after {
+  content: '⠙';
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media screen and (min-width: 768px) {

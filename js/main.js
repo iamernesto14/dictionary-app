@@ -54,7 +54,7 @@ fetch('https://api.dictionaryapi.dev/api/v2/entries/en/keyboard')
     const searchInput = document.getElementById('search-input').value.trim();
     if (!searchInput) return;
 
-    wordContent.innerHTML = '<p>Loading...</p>'; // Temporary loading state
+    wordContent.innerHTML = '<p class="loading">Loading</p>';
     try {
       const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(searchInput)}`);
       if (!response.ok) {
@@ -64,7 +64,7 @@ fetch('https://api.dictionaryapi.dev/api/v2/entries/en/keyboard')
 
       // Check if data is an array (valid response) or an object (error response)
       if (Array.isArray(data) && data.length > 0) {
-        renderWordData(data[0]); // Render the first entry
+        renderWordData(data[0]); 
       } else {
         throw new Error('No definitions found');
       }
